@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
 import {
   findNodeHandle,
-  Platform,
   Pressable,
   requireNativeComponent,
   StyleSheet,
@@ -9,27 +8,25 @@ import {
   View,
 } from 'react-native';
 
-const MapView = requireNativeComponent('RNTMap');
 const CameraView = requireNativeComponent('RNCSTMCamera');
 
 const App = () => {
   const componentRef = useRef(null);
 
   const dispatchCaptureCommand = () => {
-    UIManager.dispatchViewManagerCommand(
-      findNodeHandle(componentRef.current),
-      UIManager.RNCSTMCamera.Commands.captureImage.toString(),
-      [findNodeHandle(componentRef.current)],
+    UIManager?.dispatchViewManagerCommand(
+      findNodeHandle(componentRef?.current),
+      UIManager?.RNCSTMCamera?.Commands?.captureImage?.toString(),
+      [findNodeHandle(componentRef?.current)],
     );
   };
 
   return (
     <View style={styles.container}>
-      {Platform.select({
-        ios: <MapView style={styles.cameraView} />,
-        android: <CameraView ref={componentRef} style={styles.cameraView} />,
-      })}
-      <Pressable style={styles.captureBtn} onPress={dispatchCaptureCommand} />
+      <CameraView ref={componentRef} style={styles.cameraView} />
+      <View style={styles.captureBtnContainer}>
+        <Pressable style={styles.captureBtn} onPress={dispatchCaptureCommand} />
+      </View>
     </View>
   );
 };
@@ -39,17 +36,25 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  cameraView: {flex: 1},
-  captureBtn: {
+  cameraView: {
+    flex: 1,
+  },
+  captureBtnContainer: {
+    backgroundColor: '#0004',
     position: 'absolute',
-    bottom: 40,
+    bottom: 60,
     alignSelf: 'center',
-    height: 75,
-    width: 75,
-    borderRadius: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 90,
+    width: 90,
+    borderRadius: 60,
+  },
+  captureBtn: {
+    height: 70,
+    width: 70,
+    borderRadius: 60,
     backgroundColor: '#fff',
-    borderColor: '#fff4',
-    borderWidth: 6,
   },
 });
 

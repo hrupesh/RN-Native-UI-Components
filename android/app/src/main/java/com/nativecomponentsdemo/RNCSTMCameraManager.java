@@ -297,6 +297,9 @@ public class RNCSTMCameraManager extends SimpleViewManager<TextureView> {
         return MapBuilder.of("captureImage", CAPTURE_COMMAND);
     }
 
+    /**
+     * Handle "captureImage" command called from JS
+     */
     @Override
     public void receiveCommand(@NonNull TextureView root, String commandId, @Nullable ReadableArray args) {
         super.receiveCommand(root, commandId, args);

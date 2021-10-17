@@ -12,8 +12,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2589B4FD264BD87DBB4AB4AE /* libPods-NativeComponentsDemo-NativeComponentsDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE62892C986FDFF138FEBBB /* libPods-NativeComponentsDemo-NativeComponentsDemoTests.a */; };
-		77A973DF2719D851001E8291 /* RNTMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A973DE2719D851001E8291 /* RNTMapManager.m */; };
+		77A973DF2719D851001E8291 /* RNCSTMCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A973DE2719D851001E8291 /* RNCSTMCameraManager.m */; };
 		77A973E0271A1279001E8291 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A973E2271A1279001E8291 /* LaunchScreen.storyboard */; };
+		77AA3A17271C72ED007C3346 /* RNCSTMCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AA3A16271C72ED007C3346 /* RNCSTMCamera.m */; };
+		77AA3A18271C9320007C3346 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AA3A11271C6318007C3346 /* AVFoundation.framework */; };
 		7F1493142EC58E53209E83D1 /* libPods-NativeComponentsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E55AE017BD67986788CA7BB6 /* libPods-NativeComponentsDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -41,9 +43,13 @@
 		3608FF7F516AB44E72B00DD9 /* Pods-NativeComponentsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeComponentsDemo.release.xcconfig"; path = "Target Support Files/Pods-NativeComponentsDemo/Pods-NativeComponentsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		74E4A3D170597ACC771469C6 /* Pods-NativeComponentsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeComponentsDemo.debug.xcconfig"; path = "Target Support Files/Pods-NativeComponentsDemo/Pods-NativeComponentsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		77A973DB2719D643001E8291 /* NativeComponentsDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NativeComponentsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		77A973DE2719D851001E8291 /* RNTMapManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTMapManager.m; sourceTree = "<group>"; };
+		77A973DE2719D851001E8291 /* RNCSTMCameraManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCSTMCameraManager.m; sourceTree = "<group>"; };
 		77A973E1271A1279001E8291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77A973E4271A1281001E8291 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		77AA3A11271C6318007C3346 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		77AA3A14271C6CE1007C3346 /* RNCSTMCameraManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNCSTMCameraManager.h; sourceTree = "<group>"; };
+		77AA3A15271C722D007C3346 /* RNCTSTMCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNCTSTMCamera.h; sourceTree = "<group>"; };
+		77AA3A16271C72ED007C3346 /* RNCSTMCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCSTMCamera.m; sourceTree = "<group>"; };
 		95853F57B4EAF2F87F494E51 /* Pods-NativeComponentsDemo-NativeComponentsDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeComponentsDemo-NativeComponentsDemoTests.release.xcconfig"; path = "Target Support Files/Pods-NativeComponentsDemo-NativeComponentsDemoTests/Pods-NativeComponentsDemo-NativeComponentsDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		987459B75CD54010DB00D024 /* Pods-NativeComponentsDemo-NativeComponentsDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeComponentsDemo-NativeComponentsDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-NativeComponentsDemo-NativeComponentsDemoTests/Pods-NativeComponentsDemo-NativeComponentsDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AE017BD67986788CA7BB6 /* libPods-NativeComponentsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NativeComponentsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AA3A18271C9320007C3346 /* AVFoundation.framework in Frameworks */,
 				7F1493142EC58E53209E83D1 /* libPods-NativeComponentsDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,7 +99,10 @@
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				77A973DE2719D851001E8291 /* RNTMapManager.m */,
+				77A973DE2719D851001E8291 /* RNCSTMCameraManager.m */,
+				77AA3A14271C6CE1007C3346 /* RNCSTMCameraManager.h */,
+				77AA3A15271C722D007C3346 /* RNCTSTMCamera.h */,
+				77AA3A16271C72ED007C3346 /* RNCSTMCamera.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				77A973E2271A1279001E8291 /* LaunchScreen.storyboard */,
@@ -104,6 +114,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77AA3A11271C6318007C3346 /* AVFoundation.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				E55AE017BD67986788CA7BB6 /* libPods-NativeComponentsDemo.a */,
 				1CE62892C986FDFF138FEBBB /* libPods-NativeComponentsDemo-NativeComponentsDemoTests.a */,
@@ -417,7 +428,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				77A973DF2719D851001E8291 /* RNTMapManager.m in Sources */,
+				77AA3A17271C72ED007C3346 /* RNCSTMCamera.m in Sources */,
+				77A973DF2719D851001E8291 /* RNCSTMCameraManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +533,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "NativeComponentsDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -547,6 +560,7 @@
 				PRODUCT_NAME = NativeComponentsDemo;
 				SWIFT_OBJC_BRIDGING_HEADER = "NativeComponentsDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
