@@ -11,6 +11,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+  _photoOutput = [[AVCapturePhotoOutput alloc] init];
   self = [super initWithFrame:frame];
   if (self) {
     NSLog(@"RNCSTMCamera was initialized in Init with Frame");
@@ -19,24 +20,15 @@
   return self;
 }
 
-
 - (void) initializeCamera {
-
   AVCaptureSession *session = [[AVCaptureSession alloc] init];
   session.sessionPreset = AVCaptureSessionPreset3840x2160;
-
   CALayer *viewLayer = self.layer;
   NSLog(@"viewLayer = %@", viewLayer);
-
   AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
-
-  captureVideoPreviewLayer.frame = CGRectMake(UIScreen.mainScreen.bounds.origin.x,
-                                              UIScreen.mainScreen.bounds.origin.y,
-                                              UIScreen.mainScreen.bounds.size.width,
-                                              UIScreen.mainScreen.bounds.size.height);
+  captureVideoPreviewLayer.frame = CGRectMake(UIScreen.mainScreen.bounds.origin.x,UIScreen.mainScreen.bounds.origin.y,UIScreen.mainScreen.bounds.size.width,UIScreen.mainScreen.bounds.size.height);
   [captureVideoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
   [self.layer addSublayer:captureVideoPreviewLayer];
-//  AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
   AVCaptureDevice *device = nil;
   NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
   for(AVCaptureDevice *camera in devices) {
@@ -45,18 +37,13 @@
           break;
       }
   }
-
   NSError *error = nil;
   AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
-  if (!input) {
-    // Handle the error appropriately.
-    NSLog(@"ERROR: trying to open camera: %@", error);
-  }
+  if (!input) NSLog(@"ERROR: trying to open camera: %@", error);
   [session addInput:input];
+  [session addOutput:_photoOutput];
   [session startRunning];
   [self setClipsToBounds:true];
-  NSLog(@"startedRunnung and viewLayer = %@ and \n session: %@ \n self: %@ \n subviews: %@",
-        viewLayer, session, self, self.subviews.description);
 }
 
 @end

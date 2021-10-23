@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import {
   findNodeHandle,
+  Platform,
   Pressable,
   requireNativeComponent,
   StyleSheet,
@@ -14,11 +15,17 @@ const App = () => {
   const componentRef = useRef(null);
 
   const dispatchCaptureCommand = () => {
-    UIManager?.dispatchViewManagerCommand(
-      findNodeHandle(componentRef?.current),
-      UIManager?.RNCSTMCamera?.Commands?.captureImage?.toString(),
-      [findNodeHandle(componentRef?.current)],
-    );
+    Platform.OS === 'android'
+      ? UIManager?.dispatchViewManagerCommand(
+          findNodeHandle(componentRef?.current),
+          UIManager?.RNCSTMCamera?.Commands?.captureImage?.toString(),
+          [findNodeHandle(componentRef?.current)],
+        )
+      : UIManager.dispatchViewManagerCommand(
+          findNodeHandle(componentRef?.current),
+          UIManager.getViewManagerConfig('RNCSTMCamera').Commands.captureImage,
+          [],
+        );
   };
 
   return (
