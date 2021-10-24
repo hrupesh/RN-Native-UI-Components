@@ -14,7 +14,7 @@
   _photoOutput = [[AVCapturePhotoOutput alloc] init];
   self = [super initWithFrame:frame];
   if (self) {
-    NSLog(@"RNCSTMCamera was initialized in Init with Frame");
+    NSLog(@"RNCSTMCamera was initialized in init with Frame");
     [self initializeCamera];
   }
   return self;
@@ -22,7 +22,7 @@
 
 - (void) initializeCamera {
   AVCaptureSession *session = [[AVCaptureSession alloc] init];
-  session.sessionPreset = AVCaptureSessionPreset3840x2160;
+  session.sessionPreset = AVCaptureSessionPresetHigh;
   CALayer *viewLayer = self.layer;
   NSLog(@"viewLayer = %@", viewLayer);
   AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];

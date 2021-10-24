@@ -2,6 +2,7 @@ package com.nativecomponentsdemo;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -29,6 +30,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -254,8 +257,13 @@ public class RNCSTMCameraManager extends SimpleViewManager<TextureView> {
             @Override
             public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull TotalCaptureResult result) {
                 super.onCaptureCompleted(session, request, result);
-                Toast.makeText(mCallerContext, "Image Saved",Toast.LENGTH_LONG).show();
                 Log.d(ComponentTag, "Image is saved!");
+                new AlertDialog.Builder(mCallerContext.getCurrentActivity())
+                        .setTitle("Photo Saved!")
+                        .setMessage("The photo has been successfully saved to your Photos Gallery.")
+                        .setPositiveButton("👍", null)
+                        .setIcon(android.R.drawable.ic_menu_gallery)
+                        .show();
                 try {
                     createCameraPreview();
                 } catch (CameraAccessException e) {

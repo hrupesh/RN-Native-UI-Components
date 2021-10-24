@@ -28,8 +28,7 @@ RCT_EXPORT_METHOD(captureImage: (nonnull NSNumber *)viewTag)
     
     if ([view isKindOfClass:[UIView class]]) {
       NSLog(@"Capture Command was called");
-      AVCapturePhotoSettings *settings = [AVCapturePhotoSettings photoSettingsWithFormat:@{AVVideoCodecKey: AVVideoCodecTypeJPEG}];
-      [view.photoOutput capturePhotoWithSettings:settings delegate:self];
+      [self capturePhoto:view];
     } else {
       RCTLogError(@"view type must be UIView");
     }

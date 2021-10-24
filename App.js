@@ -3,13 +3,11 @@ import {
   findNodeHandle,
   Platform,
   Pressable,
-  requireNativeComponent,
   StyleSheet,
   UIManager,
   View,
 } from 'react-native';
-
-const CameraView = requireNativeComponent('RNCSTMCamera');
+import {CameraView} from './CameraView';
 
 const App = () => {
   const componentRef = useRef(null);
@@ -47,20 +45,20 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   captureBtnContainer: {
-    backgroundColor: '#0004',
+    backgroundColor: '#0006',
     position: 'absolute',
     bottom: 60,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 90,
-    width: 90,
+    height: 100,
+    width: 100,
     borderRadius: 60,
   },
   captureBtn: {
-    height: 70,
-    width: 70,
-    borderRadius: 60,
+    height: 75,
+    width: 75,
+    borderRadius: 37.5,
     backgroundColor: '#fff',
   },
 });
